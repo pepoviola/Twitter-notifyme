@@ -1,6 +1,6 @@
-# Twiiter-notifyME #
+# Twiiter-NotifyME #
 
-## Twitter notifications for desktop ##
+## Twitter notifications for desktop using node.js##
 
  node.js wrapper to dbus notifications, only works under linux enviroment 
  Because twitter only allow oAuth clients apps you have to create your app
@@ -31,7 +31,12 @@
  
  	$ node app.js >> /tmp/app.log 2>&1 &
  
+
+### Note ###
+ of course you need node.js to run it 
+
 ---
+
 
 (The MIT License)
 
