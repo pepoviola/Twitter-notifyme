@@ -1,7 +1,7 @@
 var oauth = require('oauth');
 var fs = require('fs');
 var http = require('http-get');
-var exec = require('child_process').exec;
+var growl = require('growl');
 var _twitterAPI = "https://api.twitter.com/";
 var _twitterConsumerKey = "CONSUMER KEY";
 var _twitterConsumerSecret = "CONSUMER SECRET";
@@ -14,10 +14,8 @@ var consumer = new oauth.OAuth(
 );
 
 var showNotify = function(pic,user,text){
-	cmd = "python  -c \"import dbus; print dbus.Bus().call_blocking('org.freedesktop.Notifications','/org/freedesktop/Notifications','org.freedesktop.Notifications', 'Notify','susssasa{sv}i', ('twNotify',0,'"+pic+"','@"+user+"','"+text+"',{},{},5000))\"";
-	exec(cmd,function (error, stdout, stderr){
-		if(error){console.log("Error de ejec");}
-	});
+	growl(text, { title: '@'+user, image: ' '+pic }); //the npm version is buggie so until they update be fix here.
+
 };
 var last_tw = 111111111110; //if i put 0 twittergive error
 var main  = function(){
@@ -26,18 +24,13 @@ var main  = function(){
 	if(error){console.log(error);}
 	else{	
 		JSON.parse(data).forEach(function(item){
-			//console.log(item);
 			last_tw = item.id_str;
-			//console.log(item.user.profile_image_url);
-			//console.log(item.text);
-			//check if a have the picture
 			var text = item.text.replace(/"/g,'\\"');
 			 text = item.text.replace(/'/g,'\\"');
 
 			fs.stat('/tmp/twNotify-'+item.user.id+'.jpg', function(err,result){
 				if(err){
 					//have to download
-					//console.log("tengo que descargarlo");
 					var url = {url:item.user.profile_image_url};
 					http.get(url,'/tmp/twNotify-'+item.user.id+'.jpg',function(err,result){
 						if(err){
@@ -45,14 +38,12 @@ var main  = function(){
 							//showNotify();
 						}
 						else{ console.log('saved!');//showNotify();}
-									//console.log(result.file);
 									showNotify(result.file,item.user.screen_name,text);
 					}});
 				}
 				else{
 					//console.log('te tengo');
 					showNotify('/tmp/twNotify-'+item.user.id+'.jpg',item.user.screen_name,text);
-					//showNotify();
 				}
 			});
 

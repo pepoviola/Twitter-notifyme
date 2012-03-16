@@ -1,0 +1,10 @@
+{
+    "name": "twitte_NotifyMe",
+   "version": "0.0.1",
+   "dependencies": {
+      "oauth": "*",
+      "http-get": "*",
+      "growl":"1.5.0"
+  }
+}
+

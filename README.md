@@ -2,7 +2,7 @@
 
 ## Twitter notifications for desktop using node.js##
 
- node.js wrapper to dbus notifications, only works under linux enviroment 
+ node.js wrapper to tweets notifications, using growl or linnotify-bin 
  Because twitter only allow oAuth clients apps you have to create your app
  first, and complete the oauth fields.
 
@@ -22,7 +22,11 @@
   * One you created your app, go to the bottom of the page and create your tokens
 
 ### Steps to config ###
-  Edit app.js and complete the filds for oAuth with your twitter info.
+  * Check for growl/libnotify-bin, for this please check [node-growl] README
+  [node-growl]:"https://github.com/visionmedia/node-growl"
+  * Install dependencies
+	npm install .
+  * Edit app.js and complete the filds for oAuth with your twitter info.
 
 
 ### Run: ###
@@ -33,7 +37,9 @@
  
 
 ### Note ###
- of course you need node.js to run it 
+ * of course you need node.js to run it 
+
+ * Thanks to @dual3nigma (for test and the advices)
 
 ---
 
