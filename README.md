@@ -29,5 +29,13 @@
  
  You can launch like this, to run in background:
  
- $ node app.js >> /tmp/app.log 2>&1 &
+ 	$ node app.js >> /tmp/app.log 2>&1 &
  
+
+
+By Pepo
+
+Twitter: @pepoviola
+
+mail: pepoviola at gmail dot com
+
