@@ -9,4 +9,9 @@
  for consume timeline API is 360/hour, this app look for new tweets and you in
  your desktop via dbus system.
 
+
+Run:
+ 
+ You can launch like this, to run in background:
+ $ node app.js >> /tmp/app.log 2>&1 &
  
