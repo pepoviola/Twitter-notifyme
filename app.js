@@ -37,7 +37,8 @@ var main  = function(){
 							console.log('ERR');
 							//showNotify();
 						}
-						else{ console.log('saved!');//showNotify();}
+						else{ 
+									//console.log('saved!');
 									showNotify(result.file,item.user.screen_name,text);
 					}});
 				}
