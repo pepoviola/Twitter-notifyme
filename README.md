@@ -21,9 +21,28 @@
   
   * One you created your app, go to the bottom of the page and create your tokens
 
-### Steps to config ###
+
+### Install and Steps to config ###
+
   * Check for growl/libnotify-bin, for this please check [node-growl] README
   [node-growl]:"https://github.com/visionmedia/node-growl"
+  
+  * Ubuntu / Debian (Linux) :
+		sudo apt-get install libnotify-bin
+  
+  * Fedora (Linux):
+        sudo yum install libnotify libnotify-devel
+  * Windows:
+      Download and install [growl-windows]
+   
+      Download [growlnotify-win] - IMPORTANT : Unpack growlnotify to a folder that is present in your path!
+
+  * Mac
+      Download and install [growl] and [growlnotify]  (is in the extras folder)
+[growl-windows]:"http://www.growlforwindows.com/gfw/default.aspx"
+[growlnotify-win]:"http://www.growlforwindows.com/gfw/help/growlnotify.aspx"
+[growl]:"http://growl.info/downloads"
+[growlnotify]:"http://growl.info/downloads"
   * Install dependencies
 	npm install .
   * Edit app.js and complete the filds for oAuth with your twitter info.
